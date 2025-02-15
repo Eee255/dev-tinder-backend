@@ -1,5 +1,5 @@
 const express = require('express');
-const { connectionDB } = require('./config/database');
+const connectionDB = require('./config/database');
 const app = express();
 const cookieParser = require('cookie-parser');
 const profileRouter = require('./routes/profile');
@@ -90,12 +90,13 @@ io.on('connection', (socket) => {
 });
 
 connectionDB()
-    .then( () => {
-        console.log("Database connnection sucessfully......");
-        server.listen(process.env.PORT, () => {
-            console.log(`Server is listening on port 5000`);
+    .then(() => {
+        console.log("Database connection successful......");
+        server.listen(PORT, () => {
+            console.log(`Server is listening on port ${PORT}`);
         });
     })
-    .catch (() => {
-        console.log("Database cannot be connected!!");
+    .catch(() => {
+        console.error("Database cannot be connected!!");
     });
+

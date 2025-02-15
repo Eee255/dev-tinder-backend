@@ -58,7 +58,7 @@ requestRouter.post('/request/review/:status/:requestId', userAuth, async (req, r
 
         const connectionRequest = await ConnectionRequest.findOne({
             _id: requestId,
-            toUserId: loggedUser,
+            toUserId: loggedUser._id,
             status: 'interested'
         });
 
