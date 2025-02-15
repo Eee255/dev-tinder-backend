@@ -12,7 +12,7 @@ const userAuth = async (req, res, next) => {
             return res.status(401).send("please login!");
         }
 
-        const decodedObj = await jwt.verify( token, '20Sravs02@');
+        const decodedObj = await jwt.verify( token, '171Bhanu');
         
         const user = await User.findById( decodedObj._id );
 
